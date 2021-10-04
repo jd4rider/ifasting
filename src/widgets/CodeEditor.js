@@ -8,7 +8,7 @@ function CodeEditor(props) {
     }
   return (
     <Editor
-      height="31vh"
+      height="28vh"
       defaultLanguage={props.code}
       defaultValue={props.default}
       theme="vs-dark"
