@@ -62,10 +62,8 @@ function App() {
         </div>
       </section>
       <section className="result">
-        <iframe title="result" className="iframe" ref={iframe} />
-        
-      </section>
-      
+        <iframe title="result" className="iframe" ref={iframe} />      
+      </section>      
     </>
   );
 }
