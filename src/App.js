@@ -39,7 +39,7 @@ const AuthApp = () => {
           <Navbar />
           <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
             <Switch>
-              <Route path='/'><Playground /></Route>
+              <Route path={process.env.REACT_APP_PUBLIC_URL}><Playground /></Route>
             </Switch>
           </Container>
         </Router>     
@@ -53,9 +53,9 @@ const AuthApp = () => {
           <Navbarnoauth />
           <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
             <Switch>
-              <Route path='/Login'><Login /></Route>
-              <Route path='/Signup'><Signup /></Route>
-              <Route path='/'><Playground /></Route>
+              <Route path={process.env.REACT_APP_PUBLIC_URL + 'Login'}><Login /></Route>
+              <Route path={process.env.REACT_APP_PUBLIC_URL + 'Signup'}><Signup /></Route>
+              <Route path={process.env.REACT_APP_PUBLIC_URL}><Playground /></Route>
             </Switch>
           </Container>
         </Router> 

@@ -48,7 +48,7 @@ const Login = () => {
                                expiresIn: 60,
                                tokenType: "Bearer",
                                authState: res.data})){ 
-                        history.push('/')
+                        history.push(process.env.REACT_APP_PUBLIC_URL)
                     }else {
                         //Throw error
                     }
