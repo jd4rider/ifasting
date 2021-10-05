@@ -1,22 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Switcher from "react-switch";
-import { BsBootstrap } from 'react-icons/bs';
+
 
 // Importing Authentication
 import { AuthProvider } from 'react-auth-kit'
 import { useIsAuthenticated } from 'react-auth-kit';
 
 //Bootstrap Import
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 //Router Import
 import {
   HashRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from "react-router-dom";
 
 

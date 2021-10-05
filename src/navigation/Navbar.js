@@ -1,17 +1,12 @@
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 //Import Authentication
 import { useAuthUser } from 'react-auth-kit'
 import { useSignOut } from 'react-auth-kit'
 
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import './Navbar.scss'
-
-const linkstyle = {
-    'color': 'inherit',  
-    'text-decoration': 'inherit'
-}
 
 const save = () => {
     alert('not implemented yet');
