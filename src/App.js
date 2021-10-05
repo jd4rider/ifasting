@@ -22,6 +22,7 @@ import {
 
 import Playground from './sections/Playground';
 import Login from './login/Login';
+import Signup from './login/Signup';
 
 //Navigation Import
 import Navbar from './navigation/Navbar';
@@ -53,6 +54,7 @@ const AuthApp = () => {
           <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
             <Switch>
               <Route path='/Login'><Login /></Route>
+              <Route path='/Signup'><Signup /></Route>
               <Route path='/'><Playground /></Route>
             </Switch>
           </Container>
