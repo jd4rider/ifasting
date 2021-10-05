@@ -35,7 +35,7 @@ const Signup = () => {
                                expiresIn: 60,
                                tokenType: "Bearer",
                                authState: res.data})){ 
-                        history.push(process.env.REACT_APP_PUBLIC_URL)
+                        history.push('/')
                     }else {
                         //Throw error
                     }
