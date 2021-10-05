@@ -27,6 +27,7 @@ const Signup = () => {
     
     const onSubmit = (e) => {
         e.preventDefault()
+        console.log(process.env.REACT_APP_API_URL);
         axios.post(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_SIGNUP}`, formData)
             .then((res)=>{
                 if(res.status === 200){
