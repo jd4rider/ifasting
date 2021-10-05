@@ -18,6 +18,7 @@ import { useSignIn } from 'react-auth-kit';
 import { Form, Button } from 'react-bootstrap';
 import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
+import { useHistory } from 'react-router-dom';
 import './Login.scss';
 
 const override = css`
@@ -31,6 +32,7 @@ const Login = () => {
     const [formData, setFormData] = React.useState({username: '', password: ''})
     let [loading, setLoading] = React.useState(true);
     let [color] = React.useState("#FF0000");
+    let history = useHistory();
 
 
     function validateForm() {
@@ -46,6 +48,7 @@ const Login = () => {
                                expiresIn: 60,
                                tokenType: "Bearer",
                                authState: res.data})){ 
+                        history.push('/')
                     }else {
                         //Throw error
                     }
