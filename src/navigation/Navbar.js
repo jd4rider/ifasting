@@ -4,11 +4,21 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { useAuthUser } from 'react-auth-kit'
 import { useSignOut } from 'react-auth-kit'
 
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
+
+import './Navbar.scss'
 
 const linkstyle = {
     'color': 'inherit',  
     'text-decoration': 'inherit'
+}
+
+const save = () => {
+    alert('not implemented yet');
+}
+
+const load = () => {
+    alert('not implemented yet');
 }
 
 const Topnav = () => {
@@ -19,11 +29,16 @@ const Topnav = () => {
     return (
         <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top" >
-            <Navbar.Brand href={process.env.REACT_APP_PUBLIC_URL}>JDPlayground</Navbar.Brand>
+            <Navbar.Brand as={Link} to='/'>JDPlayground</Navbar.Brand>
             <Nav className="me-auto">
-            <Nav.Link><Link to='/' style={linkstyle}>Home</Link></Nav.Link>
-            <Nav.Link><Link to='/Features' style={linkstyle}>Features</Link></Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link as={Link} to='/' >Home</Nav.Link>
+            <Nav>
+                <NavDropdown menuAlign="right" title={`File`} id="basic-nav-dropdown">
+                    <NavDropdown.Item onClick={() => save()}>Save</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => load()}>Load</NavDropdown.Item>
+                </NavDropdown>
+            </Nav>
+            <Nav.Link as={Link} to="/Pricing">Pricing</Nav.Link>
             </Nav>
             <Nav>
                 <NavDropdown menuAlign="right" title={`Hello ${auth().username}`} id="basic-nav-dropdown">
