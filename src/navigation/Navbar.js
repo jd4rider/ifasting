@@ -6,41 +6,53 @@ import { useSignOut } from 'react-auth-kit'
 
 import {Link} from 'react-router-dom';
 
+import ModalTJustice from '../widgets/Modal';
+
 import './Navbar.scss'
 
+let callModal = () => {}
+
 const save = () => {
-    alert('not implemented yet');
+    callModal();
 }
 
 const load = () => {
-    alert('not implemented yet');
+    callModal();
 }
 
-const Topnav = () => {
+const setModalHandlers = (call) => {
+    callModal = call;
+}
+
+const Topnav = (props) => {
     const auth = useAuthUser()
 
     const signOut = useSignOut()
 
     return (
         <>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top" >
+        <Navbar expand="lg" bg="dark" variant="dark" fixed="top" >
             <Navbar.Brand as={Link} to='/'>JDPlayground</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-            <Nav.Link as={Link} to='/' >Home</Nav.Link>
+            {/* <Nav.Link as={Link} to='/' >Home</Nav.Link> */}
             <Nav>
-                <NavDropdown menuAlign="right" title={`File`} id="basic-nav-dropdown">
+                <NavDropdown menuAlign="right" title={`Workspace`} id="basic-nav-dropdown">
                     <NavDropdown.Item onClick={() => save()}>Save</NavDropdown.Item>
                     <NavDropdown.Item onClick={() => load()}>Load</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
-            <Nav.Link as={Link} to="/Pricing">Pricing</Nav.Link>
+            {/* <Nav.Link as={Link} to="/Pricing">Pricing</Nav.Link> */}
             </Nav>
             <Nav>
                 <NavDropdown menuAlign="right" title={`Hello ${auth().username}`} id="basic-nav-dropdown">
                     <NavDropdown.Item onClick={() => signOut()}>Logout</NavDropdown.Item>
                 </NavDropdown>
             </Nav>
+            </Navbar.Collapse>
         </Navbar>
+        <ModalTJustice title='Edit Trigger' data={props.data} loader={props.loader} addrecord={false} setModalHandlers={setModalHandlers} />
         </>
     );
 }

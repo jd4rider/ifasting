@@ -1,15 +1,15 @@
 
 
-html {
+/* html {
   box-sizing: border-box;
-}
+} */
 
-#navbar { 
+/* #navbar { 
   transform: translateY(-100%); /* normal, hidden state */
-}
+/*} */
 
-.nav-container:hover #navbar {
+/* .nav-container:hover #navbar {
   transform: translateY(0); /* when parent is hovered */
-}
+/* } */
 
 

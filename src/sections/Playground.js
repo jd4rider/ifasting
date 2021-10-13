@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import './Playground.scss';
 
@@ -5,7 +6,9 @@ import Switcher from "react-switch";
 
 import CodeEditor from '../widgets/CodeEditor';
 
-const Playground = () => {
+import { Row, Col, Stack } from 'react-bootstrap';
+
+const Playground = (props) => {
     
     const iframe = React.createRef();
     const [ js, setJs ] = useState(' '); 
@@ -75,7 +78,14 @@ const Playground = () => {
 
     useEffect(() => {
         runCode();
-    });
+        if(props.setData){
+          props.setData({
+            'html' : html,
+            'css' : css,
+            'js' : js
+          })
+        }
+    }, [bootstrapcss, css, html, js, jqueryjs, bootstrapjs]);
 
     const handleBootstrapChange = (checked) => {
         if(checked) turnOnBootstrap(checked);
@@ -89,30 +99,45 @@ const Playground = () => {
     
     return (
         <>
-        <section className="playground">
-        <div className="code-editor html-code">
-          <div className="editor-header">HTML   
-            <label>
-              <Switcher onChange={handleBootstrapChange} checked={bootstrapcheck}  />
-            </label>
-            <label> 
-              <Switcher onChange={handlejQueryChange} checked={jquerycheck} />
-            </label>
-          </div>
-          <CodeEditor code="html" default="<!-- some comment -->" setItem={setHtml} />
-        </div>
-        <div className="code-editor css-code">
-          <div className="editor-header">CSS</div>
-          <CodeEditor code="css" default="/* some comment */" setItem={setCss} />
-        </div>
-        <div className="code-editor js-code">
-          <div className="editor-header">JAVASCRIPT</div>
-          <CodeEditor code="javascript" default="// some comment" setItem={setJs} />
-        </div>
-      </section>
-      <section className="result">
-        <iframe title="result" className="iframe" ref={iframe} />      
-      </section> 
+        <Row>
+          {props.tutorial &&
+            <Col>
+              <section className="tutorial">
+                
+              </section>
+            </Col>
+          }
+          <Col xs={6}>
+            <section className="playground">
+              <Stack>
+                <div className="code-editor html-code">
+                  <div className="editor-header">HTML   
+                    <label>
+                      <Switcher onChange={handleBootstrapChange} checked={bootstrapcheck}  />
+                    </label>
+                    <label> 
+                      <Switcher onChange={handlejQueryChange} checked={jquerycheck} />
+                    </label>
+                  </div>
+                  <CodeEditor code="html" default="<!-- some comment -->" setItem={setHtml} />
+                </div>
+                <div className="code-editor css-code">
+                  <div className="editor-header">CSS</div>
+                  <CodeEditor code="css" default="/* some comment */" setItem={setCss} />
+                </div>
+                <div className="code-editor js-code">
+                  <div className="editor-header">JAVASCRIPT</div>
+                  <CodeEditor code="javascript" default="// some comment" setItem={setJs} />
+                </div>
+              </Stack>
+            </section>
+          </Col>
+        <Col>
+          <section className="result">
+            <iframe title="result" className="iframe" ref={iframe} />      
+          </section> 
+        </Col>
+      </Row>
       </>
     )
 }

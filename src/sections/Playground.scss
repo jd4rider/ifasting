@@ -1,29 +1,29 @@
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-  }
+// *, *::before, *::after {
+//     box-sizing: inherit;
+//     margin: 0;
+//     padding: 0;
+//   }
   
-  .playground {
-    position: fixed;
-    top: 56.4px;
-    bottom: 0;
-    left: 0;
-    width: 800px;
-    background-color: #1E1E2C;
-  }
+  // .playground {
+  //   position: fixed;
+  //   top: 56.4px;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 65%;
+  //   background-color: #1E1E2C;
+  // }
   
-  .code-editor {
-    height: 33.33%;
-    overflow: hidden;
-    position: relative;
-  }
+  // .code-editor {
+  //   height: 33.33%;
+  //   overflow: hidden;
+  //   position: relative;
+  // }
   
   .editor-header {
-    height: 30px;
-    content: attr(title);
-    display: flex;
-    align-items: center;
+    // height: 30px;
+    // content: attr(title);
+    // display: flex;
+    // align-items: center;
     padding-left: 20px;
     font-size: 18px;
     color: #fafafa;
@@ -31,14 +31,15 @@
   }
   
   
-  .result {
-    position: fixed;
-    top: 56.4px;
-    right: 0;
-    bottom: 0;
-    left: 800px;
-    overflow: hidden;
-  }
+  // .result {
+  //   position: fixed;
+  //   top: 56.4px;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: auto;
+  //   width: auto;
+  //   overflow: hidden;
+  // }
   
   .iframe {
     width: 100%;

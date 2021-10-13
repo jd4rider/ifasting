@@ -40,6 +40,9 @@ const Signup = () => {
                     }else {
                         //Throw error
                     }
+                } else if(res.status === 201 && res.data.error === 'User Already Exists') {
+                    setLoading(true)
+                    alert(res.data.error)
                 }
             })
     }

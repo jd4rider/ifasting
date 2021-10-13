@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 
@@ -27,16 +27,16 @@ import Navbarnoauth from './navigation/NavbarNoAuth';
 
 const AuthApp = () => {
   const isAuthenticated = useIsAuthenticated()
-
+  const [ globalData, setGlobalData ] = useState({});
 
   if(isAuthenticated()){
     return (
       <>
         <Router>
-          <Navbar />
+          <Navbar data={globalData} loader={()=>{}} />
           <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
             <Switch>
-              <Route path='/'><Playground /></Route>
+              <Route path='/'><Playground tutorial={false} setData={setGlobalData}/></Route>
             </Switch>
           </Container>
         </Router>     
