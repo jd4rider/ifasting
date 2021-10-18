@@ -28,15 +28,18 @@ import Navbarnoauth from './navigation/NavbarNoAuth';
 const AuthApp = () => {
   const isAuthenticated = useIsAuthenticated()
   const [ globalData, setGlobalData ] = useState({});
+  const [ workspaces, setWorkspaces] = useState([]);
+  const [ currentWorkspace, setCurrentWorkspace] = useState({});
+
 
   if(isAuthenticated()){
     return (
       <>
         <Router>
-          <Navbar data={globalData} loader={()=>{}} />
+          <Navbar data={globalData} workspaces={workspaces} currWorkspace={currentWorkspace} setCurrentWorkspace={setCurrentWorkspace} loader={()=>{}} />
           <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
             <Switch>
-              <Route path='/'><Playground tutorial={false} setData={setGlobalData}/></Route>
+              <Route path='/'><Playground tutorial={false} setData={setGlobalData} currentWorkspace={currentWorkspace} setWorkspaces={setWorkspaces} setCurrentWorkspace={setCurrentWorkspace} authified={true} /></Route>
             </Switch>
           </Container>
         </Router>     

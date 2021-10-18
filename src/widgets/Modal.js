@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
 import LoadSave from '../interface/LoadSaveInterface';
+import DTable from './Datatable';
+import { useAuthUser } from 'react-auth-kit'
 import './Modal.scss';
 
 //Bootstrap Import
@@ -32,13 +34,13 @@ const ModalTJustice = (props) => {
     const setformSubmitMethod = (newMethod) => {
       formSubmit = newMethod;
     }
-    
+  
     
     useEffect(()=>{
       if(!props.addrecord) {
        props.setModalHandlers(handleShow)
       }
-    })
+    }, [])
     
   
     return (

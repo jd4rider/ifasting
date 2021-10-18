@@ -23,6 +23,7 @@ const LoadSave = (props) => {
                                               js: js,
                                               username: auth().username
                                               })
+    
 
 
     const headers = {
@@ -32,36 +33,19 @@ const LoadSave = (props) => {
     }
     
     const onSubmit = () => {
-    //   if(!props.data)
       axios.post(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_WORKSPACE_SAVE}`, JSON.stringify(formData), {
-             headers: headers
-           })
-           .then((res)=>{
-             if(res.status == 200 || res.status == 201) {
-               props.loader();
-               setTimeout(()=>{
-                  props.setLoading(true);
-                  props.handleClose();
-               }, 1000)
-               
-             }
-           })
-    //   else {
-    //   console.log('YAY!!!!!!!!!!!!!!!!!!!!!!!')
-    //   axios.put(`${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_TRIGGER}`, JSON.stringify(formData), {
-    //     headers: headers
-    //   })
-    //   .then((res)=>{
-    //     if(res.status == 200 || res.status == 201) {
-    //       props.loader();
-    //       setTimeout(()=>{
-    //          props.setLoading(true);
-    //          props.handleClose();
-    //       }, 1000)
+        headers: headers
+      })
+      .then((res)=>{
+        if(res.status == 200 || res.status == 201) {
+          props.loader();
+          setTimeout(()=>{
+            props.setLoading(true);
+            props.handleClose();
+          }, 1000)
           
-    //     }
-    //   })
-    //   }
+        }
+      })
     }
 
     useEffect( () => {

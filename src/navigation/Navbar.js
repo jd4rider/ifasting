@@ -52,7 +52,7 @@ const Topnav = (props) => {
             </Nav>
             </Navbar.Collapse>
         </Navbar>
-        <ModalTJustice title='Edit Trigger' data={props.data} loader={props.loader} addrecord={false} setModalHandlers={setModalHandlers} />
+        <ModalTJustice title='Save Trigger' data={props.data} loader={props.loader} addrecord={false} setModalHandlers={setModalHandlers} />
         </>
     );
 }
