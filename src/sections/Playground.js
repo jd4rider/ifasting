@@ -14,9 +14,9 @@ const Playground = (props) => {
     
     const auth = useAuthUser()
     const iframe = React.createRef();
-    const [ js, setJs ] = useState(' '); 
-    const [ css, setCss ]= useState(' ');
-    const [ html, setHtml ]  = useState(' ');
+    const [ js, setJs ] = useState('// some comment'); 
+    const [ css, setCss ]= useState('/* some comment */');
+    const [ html, setHtml ]  = useState('<!-- some comment -->');
     const [ bootstrapcss, setbootstrapCss ] = useState(' ');
     const [ bootstrapjs, setbootstrapJs ] = useState('');
     const [ jqueryjs, setjQueryJs ] = useState('');
@@ -24,13 +24,6 @@ const Playground = (props) => {
     const [ jquerycheck, setjqueryCheck ] = useState(false);
     const [ workspaceRan, setWorkspaceRan ] = useState(false);
     const [ currentWorkspaceP, setCurrentWorkspaceP ] = useState({});
-    const [ defaultValues, setDefaultValues ] = useState(
-                                                          {
-                                                            html: '<!-- some comment -->',
-                                                            js: '// some comment',
-                                                            css: '/* some comment */'
-                                                          }
-                                                        );
 
     let headers;
     let getAllWorkspaces = () => {};
@@ -68,15 +61,12 @@ const Playground = (props) => {
                 props.setCurrentWorkspace(bigdata);
                 if(bigdata.parsedhtml.trim()) {
                   setHtml(bigdata.parsedhtml);
-                  setDefaultValues({...defaultValues, html: bigdata.parsedhtml})
                 }
                 if(bigdata.parsedcss.trim()) { 
                   setCss(bigdata.parsedcss);
-                  setDefaultValues({...defaultValues, css: bigdata.parsedcss})
                 }
                 if(bigdata.parsedjs.trim()) { 
                   setJs(bigdata.parsedjs);
-                  setDefaultValues({...defaultValues, js: bigdata.js})
                 }
               }
             }
@@ -184,15 +174,15 @@ const Playground = (props) => {
                       <Switcher onChange={handlejQueryChange} checked={jquerycheck} />
                     </label>
                   </div>
-                  <CodeEditor code="html" default={defaultValues.html}setItem={setHtml} />
+                  <CodeEditor code="html" default={html} setItem={setHtml} />
                 </div>
                 <div className="code-editor css-code">
                   <div className="editor-header">CSS</div>
-                  <CodeEditor code="css" default={defaultValues.css} setItem={setCss} />
+                  <CodeEditor code="css" default={css} setItem={setCss} />
                 </div>
                 <div className="code-editor js-code">
                   <div className="editor-header">JAVASCRIPT</div>
-                  <CodeEditor code="javascript" default={defaultValues.js} setItem={setJs} />
+                  <CodeEditor code="javascript" default={js} setItem={setJs} />
                 </div>
               </Stack>
             </section>

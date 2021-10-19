@@ -10,7 +10,7 @@ function CodeEditor(props) {
     <Editor
       height="28vh"
       defaultLanguage={props.code}
-      defaultValue={props.default}
+      value={props.default}
       theme="vs-dark"
       onChange={handleChange}
     />
