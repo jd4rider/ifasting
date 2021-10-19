@@ -31,18 +31,18 @@ const Topnav = (props) => {
 
     return (
         <>
-        <Navbar expand="lg" bg="dark" variant="dark" fixed="top" >
-            <Navbar.Brand as={Link} to='/'>JDPlayground</Navbar.Brand>
+        <Navbar expand={false} bg="dark" variant="dark" sticky="top">
+            <Navbar.Brand as={Link} to='/'>iFasting</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
             {/* <Nav.Link as={Link} to='/' >Home</Nav.Link> */}
-            <Nav>
+            {/* <Nav>
                 <NavDropdown menuAlign="right" title={`Workspace`} id="basic-nav-dropdown">
                     <NavDropdown.Item onClick={() => save()}>Save</NavDropdown.Item>
                     <NavDropdown.Item onClick={() => load()}>Load</NavDropdown.Item>
                 </NavDropdown>
-            </Nav>
+            </Nav> */}
             {/* <Nav.Link as={Link} to="/Pricing">Pricing</Nav.Link> */}
             </Nav>
             <Nav>

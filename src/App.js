@@ -17,7 +17,8 @@ import {
 } from "react-router-dom";
 
 
-import Playground from './sections/Playground';
+import Main from './sections/Main';
+import Unauth from './sections/Unauth';
 import Login from './login/Login';
 import Signup from './login/Signup';
 
@@ -37,9 +38,9 @@ const AuthApp = () => {
       <>
         <Router>
           <Navbar data={globalData} workspaces={workspaces} currWorkspace={currentWorkspace} setCurrentWorkspace={setCurrentWorkspace} loader={()=>{}} />
-          <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
+          <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px", width: "400px"}}>
             <Switch>
-              <Route path='/'><Playground tutorial={false} setData={setGlobalData} currentWorkspace={currentWorkspace} setWorkspaces={setWorkspaces} setCurrentWorkspace={setCurrentWorkspace} authified={true} /></Route>
+              <Route path='/'><Main tutorial={false} setData={setGlobalData} currentWorkspace={currentWorkspace} setWorkspaces={setWorkspaces} setCurrentWorkspace={setCurrentWorkspace} authified={true} /></Route>
             </Switch>
           </Container>
         </Router>     
@@ -55,7 +56,7 @@ const AuthApp = () => {
             <Switch>
               <Route path='/Login'><Login /></Route>
               <Route path='/Signup'><Signup /></Route>
-              <Route path='/'><Playground /></Route>
+              <Route path='/'><Unauth /></Route>
             </Switch>
           </Container>
         </Router> 
