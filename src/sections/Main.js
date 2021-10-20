@@ -17,7 +17,7 @@ const Main = (props) => {
     const [startDate, setStartDate] = useState();
     const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 19).replace('T', ' '));
     const [percentageDone, setPercentageDone] = useState(0);
-    const [activeDisabled, setActiveDisabled] = useState(false);
+    const [activeDisabled, setActiveDisabled] = useState(true);
 
     const howlong=16;
 
@@ -64,7 +64,7 @@ const Main = (props) => {
                     if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
                     } else setActiveDisabled(true)
-                }
+                } else setActiveDisabled(false)
             }
         }) 
     }
@@ -115,7 +115,7 @@ const Main = (props) => {
 
     useEffect (() => {
         getAllUnfinished(); 
-
+        setActiveDisabled(true)
     },[])
 
     return (
