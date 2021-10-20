@@ -55,11 +55,13 @@ const Main = (props) => {
         .then((res)=>{
             if(res.status == 200 || res.status == 201) {
             console.log(res.data)
-                if(res.data.length > 0) {
+                console.log(res.data[0].endtime);
+                console.log(res.data[0].starttime)
+                if(res.data[0].starttime && res.data[0].endtime == null) {
                     setButtonOn();
                     setStartDate(res.data[0].starttime)
                     setPercentageDone((res.data[0].hours/howlong)*100);
-                    if(res.data[0].hours > howlong){
+                    if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
                     } else setActiveDisabled(true)
                 }
@@ -77,6 +79,8 @@ const Main = (props) => {
         .then((res)=>{
             if(res.status == 200 || res.status == 201) {
                 setButtonOn();
+                setPercentageDone(0.0001);
+                setActiveDisabled(true);
                 setStartDate(new Date().toISOString().slice(0, 19).replace('T', ' '))
             }
             console.log(res)

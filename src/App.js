@@ -51,8 +51,8 @@ const AuthApp = () => {
     return (
       <>
         <Router>
-          <Navbarnoauth />
-          <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "56.4px"}}>
+          <Navbarnoauth />  {/* 56.4px*/}
+          <Container fluid style={{paddingLeft: "0px", paddingRight: "0px", paddingTop: "0px"}}>
             <Switch>
               <Route path='/Login'><Login /></Route>
               <Route path='/Signup'><Signup /></Route>
