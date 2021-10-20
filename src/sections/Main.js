@@ -16,7 +16,7 @@ const Main = (props) => {
     const [currUser, setCurrUser] = useState(auth().username);
     const [startDate, setStartDate] = useState();
     const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 19).replace('T', ' '));
-    const [percentageDone, setPercentageDone] = useState(0);
+    const [percentageDone, setPercentageDone] = useState(0.0001);
     const [activeDisabled, setActiveDisabled] = useState(true);
 
     const howlong=16;
@@ -60,7 +60,9 @@ const Main = (props) => {
                 if(res.data[0].starttime && res.data[0].endtime == null) {
                     setButtonOn();
                     setStartDate(res.data[0].starttime)
-                    setPercentageDone((res.data[0].hours/howlong)*100);
+                    let percentagesDone = (res.data[0].hours/howlong)*100
+                    if (percentagesDone < 0.0001) setPercentageDone(0.0001);
+                    else setPercentageDone(percentagesDone);
                     if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
                     } else setActiveDisabled(true)
@@ -121,7 +123,7 @@ const Main = (props) => {
     return (
     <>
         <CircularProgressbarWithChildren value={percentageDone} text={`${Math.round(percentageDone)}%`}>
-            <Button onClick={onClickHandle} style={{'border-radius': '50%'}} size="lg" className={buttonClass} disabled={activeDisabled}>{buttonTitle}</Button>
+            <Button onClick={onClickHandle} style={{'border-radius': '50%'}} size="lg" className={buttonClass} disabled={true && activeDisabled}>{buttonTitle}</Button>
         </CircularProgressbarWithChildren>
     </>
     )
