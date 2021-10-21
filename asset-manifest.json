@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ifasting/static/css/main.04e7565c.chunk.css",
-    "main.js": "/ifasting/static/js/main.0235c45c.chunk.js",
-    "main.js.map": "/ifasting/static/js/main.0235c45c.chunk.js.map",
+    "main.css": "/ifasting/static/css/main.7d23a30b.chunk.css",
+    "main.js": "/ifasting/static/js/main.a5549a9a.chunk.js",
+    "main.js.map": "/ifasting/static/js/main.a5549a9a.chunk.js.map",
     "runtime-main.js": "/ifasting/static/js/runtime-main.bbb2a106.js",
     "runtime-main.js.map": "/ifasting/static/js/runtime-main.bbb2a106.js.map",
     "static/css/2.675efae1.chunk.css": "/ifasting/static/css/2.675efae1.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.b4c346e8.chunk.js.map": "/ifasting/static/js/3.b4c346e8.chunk.js.map",
     "index.html": "/ifasting/index.html",
     "static/css/2.675efae1.chunk.css.map": "/ifasting/static/css/2.675efae1.chunk.css.map",
-    "static/css/main.04e7565c.chunk.css.map": "/ifasting/static/css/main.04e7565c.chunk.css.map",
+    "static/css/main.7d23a30b.chunk.css.map": "/ifasting/static/css/main.7d23a30b.chunk.css.map",
     "static/js/2.a52de1b1.chunk.js.LICENSE.txt": "/ifasting/static/js/2.a52de1b1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bbb2a106.js",
     "static/css/2.675efae1.chunk.css",
     "static/js/2.a52de1b1.chunk.js",
-    "static/css/main.04e7565c.chunk.css",
-    "static/js/main.0235c45c.chunk.js"
+    "static/css/main.7d23a30b.chunk.css",
+    "static/js/main.a5549a9a.chunk.js"
   ]
 }
