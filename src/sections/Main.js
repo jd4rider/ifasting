@@ -69,7 +69,10 @@ const Main = (props) => {
                     if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
                         setHoursdone('hoursdonet');
-                    } else setActiveDisabled(true)
+                    } else {
+                        setActiveDisabled(true)
+                        setHoursdone('hoursnotdone')
+                    }
                 } else setActiveDisabled(false)
             }
         }) 
@@ -132,7 +135,7 @@ const Main = (props) => {
             <Button onClick={onClickHandle} style={{'border-radius': '50%'}} size="lg" className={buttonClass} disabled={true && activeDisabled}>{buttonTitle}</Button>
         </CircularProgressbarWithChildren>
         <div className='elapsecontainer'>
-        {buttonTitle=='End Fast' ? <h2 className={hoursdone}>Time Elapsed: {hoursd.toFixed(2)} / 16</h2> : ''}
+        {buttonTitle=='End Fast' ? <h1 className={hoursdone}>Time Elapsed: {hoursd.toFixed(2)} / 16</h1> : ''}
         </div>
     </>
     )
