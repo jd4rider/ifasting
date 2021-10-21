@@ -16,7 +16,7 @@ const Main = (props) => {
     const [currUser, setCurrUser] = useState(auth().username);
     const [startDate, setStartDate] = useState();
     const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 19).replace('T', ' '));
-    const [percentageDone, setPercentageDone] = useState(0.0001);
+    const [percentageDone, setPercentageDone] = useState(0);
     const [activeDisabled, setActiveDisabled] = useState(true);
 
     const howlong=16;
@@ -96,6 +96,8 @@ const Main = (props) => {
         .then((res)=>{
             if(res.status == 200 || res.status == 201) {
                 setButtonOff();
+                setPercentageDone(0);
+                setActiveDisabled(false);
                 setCurrDate(new Date().toISOString().slice(0, 19).replace('T', ' '))
             }
             console.log(res)
