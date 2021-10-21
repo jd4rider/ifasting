@@ -57,6 +57,7 @@ const Login = () => {
                                 value={formData.username}
                                 onChange={(e)=>setFormData({...formData, username: e.target.value})}
                                 style={{"text-transform" : "lowercase"}}
+                                autocapitalize="off"
                             />
                     </Form.Group>
                     <Form.Group size="lg" controlId="password">

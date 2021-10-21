@@ -18,6 +18,8 @@ const Main = (props) => {
     const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 19).replace('T', ' '));
     const [percentageDone, setPercentageDone] = useState(0);
     const [activeDisabled, setActiveDisabled] = useState(true);
+    const [hoursdone, setHoursdone] = useState('hoursnotdone');
+    const [hoursd, setHoursd] = useState(0);
 
     const howlong=16;
 
@@ -63,8 +65,10 @@ const Main = (props) => {
                     let percentagesDone = (res.data[0].hours/howlong)*100
                     if (percentagesDone < 0.0001) setPercentageDone(0.0001);
                     else setPercentageDone(percentagesDone);
+                    setHoursd(res.data[0].hours);
                     if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
+                        setHoursdone('hoursdone');
                     } else setActiveDisabled(true)
                 } else setActiveDisabled(false)
             }
@@ -127,6 +131,7 @@ const Main = (props) => {
         <CircularProgressbarWithChildren value={percentageDone} text={`${Math.round(percentageDone)}%`}>
             <Button onClick={onClickHandle} style={{'border-radius': '50%'}} size="lg" className={buttonClass} disabled={true && activeDisabled}>{buttonTitle}</Button>
         </CircularProgressbarWithChildren>
+        {buttonTitle=='End Fast' ? <h2 className={hoursdone}>Time Elapsed: {hoursd.toFixed(2)} / 16</h2> : ''}
     </>
     )
 }
