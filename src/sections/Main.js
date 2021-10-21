@@ -18,7 +18,7 @@ const Main = (props) => {
     const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 19).replace('T', ' '));
     const [percentageDone, setPercentageDone] = useState(0);
     const [activeDisabled, setActiveDisabled] = useState(true);
-    const [hoursdone, setHoursdone] = useState('hoursnotdone');
+    const [hoursdone, setHoursdone] = useState('hoursnotdonet');
     const [hoursd, setHoursd] = useState(0);
 
     const howlong=16;
@@ -68,7 +68,7 @@ const Main = (props) => {
                     setHoursd(res.data[0].hours);
                     if(res.data[0].hours >= howlong){
                         setActiveDisabled(false)
-                        setHoursdone('hoursdone');
+                        setHoursdone('hoursdonet');
                     } else setActiveDisabled(true)
                 } else setActiveDisabled(false)
             }
