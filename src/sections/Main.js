@@ -131,7 +131,9 @@ const Main = (props) => {
         <CircularProgressbarWithChildren value={percentageDone} text={`${Math.round(percentageDone)}%`}>
             <Button onClick={onClickHandle} style={{'border-radius': '50%'}} size="lg" className={buttonClass} disabled={true && activeDisabled}>{buttonTitle}</Button>
         </CircularProgressbarWithChildren>
+        <div className='elapsecontainer'>
         {buttonTitle=='End Fast' ? <h2 className={hoursdone}>Time Elapsed: {hoursd.toFixed(2)} / 16</h2> : ''}
+        </div>
     </>
     )
 }
